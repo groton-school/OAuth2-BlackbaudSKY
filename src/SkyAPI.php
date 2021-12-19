@@ -3,7 +3,7 @@
 namespace GrotonSchool\OAuth2\Client\Provider;
 
 use Exception;
-use Battis\Path;
+use Battis\Path\Path;
 use GuzzleHttp\Client;
 
 class SkyAPI
