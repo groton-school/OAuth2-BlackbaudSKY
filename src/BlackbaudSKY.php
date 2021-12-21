@@ -3,9 +3,9 @@
 namespace GrotonSchool\OAuth2\Client\Provider;
 
 use Exception;
-use GuzzleHttp\Client;
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Token\AccessToken;
+use League\OAuth2\Client\Token\AccessTokenInterface;
 use League\OAuth2\Client\Tool\ArrayAccessorTrait;
 use Psr\Http\Message\ResponseInterface;
 
@@ -66,6 +66,7 @@ class BlackbaudSKY extends AbstractProvider
 
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
+        // TODO waiting on resolution of https://app.blackbaud.com/support/cases/018662802
     }
 
     protected function getDefaultScopes()
@@ -107,9 +108,15 @@ class BlackbaudSKY extends AbstractProvider
         }
     }
 
-    public function endpoint(string $path): SkyAPI
+    public function endpoint(string $path, ?AccessToken $token = null): SkyAPIEndpoint
     {
-        assert($this->accessToken, new Exception('No stored access token'));
-        return new SkyAPI($this, $path);
+        if (!$token) {
+            if ($this->accessToken) {
+                $token = $this->accessToken;
+            } else {
+                throw new Exception('No access token provided or cached');
+            }
+        }
+        return new SkyAPIEndpoint($this, $path, $token);
     }
 }
