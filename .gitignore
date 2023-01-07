@@ -1,3 +1,5 @@
 .env
 /vendor/
-.nova
+/.nova/*
+!/.nova/Artwork
+!/.nova/Configuration.json
