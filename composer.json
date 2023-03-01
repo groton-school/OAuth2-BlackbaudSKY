@@ -9,6 +9,7 @@
         }
     ],
     "require": {
+        "ext-curl": "*",
         "league/oauth2-client": "^2.6",
         "guzzlehttp/guzzle": "^7.4",
         "battis/path": "^0.1.0"
