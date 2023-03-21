@@ -19,9 +19,8 @@
 			"GrotonSchool\\OAuth2\\Client\\Provider\\": "src/"
 		}
 	},
-    "require-dev": {
-        "squizlabs/php_codesniffer": "^3.6",
-        "friendsofphp/php-cs-fixer": "^3.4",
-        "vimeo/psalm": "^5.8"
+    "scripts": {
+        "docs": "./tools/phpdocumentor -d src -t docs"
     }
+
 }
