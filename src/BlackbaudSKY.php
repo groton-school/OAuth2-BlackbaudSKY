@@ -11,28 +11,27 @@ use Psr\Http\Message\ResponseInterface;
 
 class BlackbaudSKY extends AbstractProvider
 {
-    const ACCESS_KEY = "Bb-Api-Subscription-Key";
-    const ACCESS_TOKEN = "access_token";
-
-    const SESSION_STATE = "oauth2_state";
-
-    const ARG_AUTH_CODE = "authorization_code";
-
-    const PARAM_CODE = "code";
-    const PARAM_STATE = "state";
-
-    const OPT_PARAMS = "params";
-    const OPT_REDIRECT_URI = "redirect_uri";
-    const OPT_AUTH_CODE_CALLBACK = "authorization_code_callback";
-    const OPT_ACCESS_TOKEN_CALLBACK = "access_token_callback";
-    const OPT_ERROR_CALLBACK = "error_callback";
-
     use ArrayAccessorTrait;
+    public const ACCESS_KEY = "Bb-Api-Subscription-Key";
+    public const ACCESS_TOKEN = "access_token";
+
+    public const SESSION_STATE = "oauth2_state";
+
+    public const ARG_AUTH_CODE = "authorization_code";
+
+    public const PARAM_CODE = "code";
+    public const PARAM_STATE = "state";
+
+    public const OPT_PARAMS = "params";
+    public const OPT_REDIRECT_URI = "redirect_uri";
+    public const OPT_AUTH_CODE_CALLBACK = "authorization_code_callback";
+    public const OPT_ACCESS_TOKEN_CALLBACK = "access_token_callback";
+    public const OPT_ERROR_CALLBACK = "error_callback";
 
     private $accessKey;
 
     /** @var AccessToken */
-    private $accessToken;
+    protected $accessToken;
 
     public function __construct(array $options = [], array $collaborators = [])
     {
@@ -91,9 +90,9 @@ class BlackbaudSKY extends AbstractProvider
     protected function getAuthorizationHeaders($token = null)
     {
         return [
-            self::ACCESS_KEY => $this->accessKey,
-            "Authorization" => "Bearer " . $token,
-        ];
+      self::ACCESS_KEY => $this->accessKey,
+      "Authorization" => "Bearer " . $token,
+    ];
     }
 
     public function getAccessToken($grant = "", array $options = [])
@@ -113,6 +112,7 @@ class BlackbaudSKY extends AbstractProvider
         $this->accessToken = $accessToken;
     }
 
+    /** @deprecated 0.2.3 externalized to {@link https://github.com/groton-school/appengine-sky-api groton-school/appengine-sky-api} */
     public function endpoint(
         string $path,
         ?AccessToken $token = null
