@@ -2,10 +2,10 @@
 
 namespace GrotonSchool\OAuth2\Client\Provider;
 
+use Battis\DataUtilities\Path;
 use Exception;
 use GuzzleHttp\Client;
 use League\OAuth2\Client\Token\AccessToken;
-use Webmozart\PathUtil\Path;
 
 /** @deprecated 0.2.3 externalized to {@link https://github.com/groton-school/appengine-sky-api groton-school/appengine-sky-api} */
 class SkyAPIEndpoint
