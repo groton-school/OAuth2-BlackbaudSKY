@@ -1,3 +1,5 @@
+> This package was developed to work with data stored in Blackbaud SIS/LMS/SWS instances. We are no longer Blackbaud users, and therefore no longer actively maintaining this package. If you would like to discuss this tool, or the approaches it took to accessing otherwise inaccessible data in Blackbaud, please reach out directly to [Seth Battis](mailto:seth@battis.net?subject=OAuth2-BlackbaudSKY)
+
 # Blackbaud SKY API OAuth 2.0 Client
 
 This package provides Blackbaud SKY OAuth 2.0 support for the [PHP League's OAuth 2.0 Client](https://oauth2-client.thephpleague.com/)
